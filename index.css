@@ -59,3 +59,13 @@ form *:not(label) {
     border-radius: 5px;
     border: none;
 }
+
+/* Custom styles */
+#custom-input {
+    display: none;
+}
+label[for="custom-input"] {
+    display: none;
+}
+
+
