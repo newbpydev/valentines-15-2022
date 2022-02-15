@@ -59,7 +59,7 @@ function writeGreeting(shouldFocus = false) {
       customLabelEl.style.display = "none";
       btnJokeEl.style.display = "none";
     }
-    
+
     greetingDisplay.innerText = `To: ${msgObject.to} \n\n "${msgObject.msg}" \n\nFrom: ${msgObject.from}`;
   }
 }
@@ -69,12 +69,9 @@ recipientEl.addEventListener("input", () => {
   writeGreeting();
 });
 
-// let shouldFocus = false;
 selectGreetingsEl.addEventListener("input", () => {
   if (selectGreetingsEl.value === "custom") {
     customEl.value = msgObject["msg"];
-
-    // shouldFocus = true;
     writeGreeting(true);
   } else {
     msgObject["msg"] = selectGreetingsEl.value;
@@ -86,7 +83,6 @@ const getRandJoke = () => {
   const randIndex = Math.floor(Math.random() * randValentinesJoke.length);
   return randValentinesJoke[randIndex];
 }
-// getRandJoke();
 
 customEl.addEventListener("input", () => {
   msgObject["msg"] = customEl.value;

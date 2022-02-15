@@ -1,6 +1,6 @@
 # Frontend Mentor - Profile card component solution
 
-This is a solution to the [Valentine's Challenge](https://scrimba.com/learn/codeweeks/-gift-selector-challenge-cof354519882e285411fb8562). 
+This is a solution to the [Valentine's Challenge](https://scrimba.com/learn/codeweeks/-valentines-greeting-challenge-co62942e9aa8970a7028de53d). 
 
 ## Table of contents
 
@@ -17,10 +17,12 @@ This is a solution to the [Valentine's Challenge](https://scrimba.com/learn/code
 
 ## Overview
 
-This is my solution to the Valentine's Challenge for the 14th of January, 2022.
-It is a small project that interacts with the users to calculate the cost of a
-gift based on two factors, the food choice (e.g. chocolate) and transportation
-(e.g. limo) and a choice of adding balloons or not.
+This is my solution to the Valentine's Challenge for the 15th of January, 2022.
+It is a small project that interacts with the users to display a valentines
+greeting with 3 optional input, a sender, recipient and a message from the
+selected options or the user can input a custom message. As an added element, I
+added a button to the custom input that if the user presses the button it will
+randomly choose a valentines joke as the input.
 
 ### Screenshot
 
@@ -31,8 +33,8 @@ gift based on two factors, the food choice (e.g. chocolate) and transportation
 
 ### Links
 
-- Solution URL: [GitHub](https://github.com/newbpydev/valentines-14-2022)
-- Live Site URL: [Live Site](https://keen-lumiere-68538c.netlify.app/)
+- Solution URL: [GitHub](https://github.com/newbpydev/valentines-15-2022)
+- Live Site URL: [Live Site](https://distracted-goldwasser-763af5.netlify.app/)
 
 ## My process
 
@@ -45,40 +47,25 @@ gift based on two factors, the food choice (e.g. chocolate) and transportation
 
 ### What I learned
 
-I have learned on this project how to customize the checkbox and how to add
-elements on a page using js only, I didn't implement it because there was an
-error while using document.body.form.inserBefore().
+I have learned on this project how to get instant input feedback based on what
+the user types. It is a nice feature to keep in mind while building my own apps.
 
-```css
-input[type="checkbox"] {
-    appearance: none;
-    cursor: pointer;
-    height: 2rem;
-    width: 2rem;
-    background-color: #fff;
-    border-radius: .5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all .2s ease;
+```javascript
+const getRandJoke = () => {
+  const randIndex = Math.floor(Math.random() * randValentinesJoke.length);
+  return randValentinesJoke[randIndex];
 }
+// getRandJoke();
 
-input[type="checkbox"]::after {
-    content: '🎈';
-    display: none;
-}
+customEl.addEventListener("input", () => {
+  msgObject["msg"] = customEl.value;
+  writeGreeting();
+});
 
-input[type="checkbox"]:hover {
-    background-color: #ddd;
-}
-
-input[type="checkbox"]:checked {
-    border: .1rem solid #F04C86;
-}
-
-input[type="checkbox"]:checked:after {
-    display: block;
-}
+btnJokeEl.addEventListener("click", () => {
+  msgObject["msg"] = getRandJoke();
+  customEl.value = msgObject['msg'];
+  writeGreeting();
 ```
 
 ### Continued development
@@ -88,8 +75,8 @@ the elements on my pages.
 
 ### Useful resources
 
-- [MDN - Node.insertBefore()](https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore) - The insertBefore() method of the Node interface inserts a node before a reference node as a child of a specified parent node.
-- [YouTube - Custom Checkbox Pure CSS Tutorial](https://www.youtube.com/watch?v=NfW_5Y1RZQ4&t=2s&ab_channel=FollowAndrew) - Learn how to create these fancy custom checkbox form elements with pure CSS!  There's a couple of tricks with the HTML source order by making the label follow the input field, and then styling some of the CSS pseudo elements, so that our checkboxes can have custom CSS as well as a custom image used for the actual checkmark.  We also add a bit of animation to make our checkboxes animate by using the transition properties.
+- [OWASP Cross Site Scripting Prevention](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) - This article provides a simple positive model for preventing XSS using output encoding properly. While there are a huge number of XSS attack vectors, following a few simple rules can completely defend against this serious attack.
+- [YouTube - RegEx](https://www.youtube.com/watch?v=rhzKDrUiJVk&t=1029s&ab_channel=WebDevSimplified) - Having the ability to search through text, validate text, and replace text using an advanced set of rules is exactly what Regex is for. Unfortunately, people fail to ever truly learn Regex. In this video I will be teaching you everything you need to know about Regex. We will talk about what Regex is, what Regex flags are, how to do simple and complex matches, how to handle look aheads and look behinds, and much more. Then at the end of the video I will show you how to use Regex to validate and format a phone number in various different formats.
 
 ## Author
 
