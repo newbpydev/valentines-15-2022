@@ -1,4 +1,4 @@
-# Frontend Mentor - Profile card component solution
+# Valentine's Challenge - Valentines Greeting Challenge Solution
 
 This is a solution to the [Valentine's Challenge](https://scrimba.com/learn/codeweeks/-valentines-greeting-challenge-co62942e9aa8970a7028de53d). 
 
